@@ -1,0 +1,1 @@
+export { productSeoText } from './content'

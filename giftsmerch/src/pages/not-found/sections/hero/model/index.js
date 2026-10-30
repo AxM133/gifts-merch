@@ -1,0 +1,1 @@
+export { notFoundContent } from './content'

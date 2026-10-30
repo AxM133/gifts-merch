@@ -1,0 +1,1 @@
+export { contactsContent } from './content'

@@ -1,0 +1,1 @@
+export { sewingContent } from './content'

@@ -1,0 +1,1 @@
+export { sizeChart } from './sizeChart'

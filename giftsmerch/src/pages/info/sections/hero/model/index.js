@@ -1,0 +1,1 @@
+export { infoContent } from './content'

@@ -1,0 +1,1 @@
+export { useCategoryTiles } from './useCategoryTiles'

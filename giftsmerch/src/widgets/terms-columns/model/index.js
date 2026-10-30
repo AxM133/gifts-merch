@@ -1,0 +1,1 @@
+export { termsColumns } from './content'

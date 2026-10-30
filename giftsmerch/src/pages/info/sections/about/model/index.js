@@ -1,0 +1,1 @@
+export { aboutBlocks } from './content'

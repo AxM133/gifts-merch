@@ -1,0 +1,178 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/manrope';
+@import '@fontsource-variable/jost';
+
+@theme {
+  --font-sans: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-logo: 'Jost Variable', 'Manrope Variable', ui-sans-serif, sans-serif;
+
+  --color-ink: #272525;
+  --color-page: #fafafa;
+  --color-mist: #eef0f7;
+  --color-lilac: #e4d6f3;
+  --color-iris: #a79af0;
+  --color-violet: #3b2d70;
+  --color-brand: #3f3172;
+  --color-mint: #1fa987;
+  --color-mint-dark: #178f72;
+  --color-muted: #8a86a3;
+  --color-body: #4a4752;
+  --color-danger: #ea4b5a;
+
+  --shadow-soft: 0 10px 30px -12px rgb(63 49 114 / 0.28);
+  --shadow-card: 0 8px 28px -14px rgb(39 37 37 / 0.25);
+
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-fade-up: fade-up 0.8s var(--ease-out-expo) both;
+  --animate-fade-in: fade-in 0.5s ease-out both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-soft: float-soft 8s ease-in-out infinite;
+  --animate-float-slow: float 9s ease-in-out infinite reverse;
+  --animate-pop: pop 0.45s var(--ease-out-expo) both;
+  --animate-slide-next: slide-next 0.45s var(--ease-out-expo) both;
+  --animate-slide-prev: slide-prev 0.45s var(--ease-out-expo) both;
+  --animate-pulse-ring: pulse-ring 2.4s ease-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-14px) rotate(1.2deg);
+    }
+  }
+  @keyframes float-soft {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-9px);
+    }
+  }
+  @keyframes pop {
+    0% {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes slide-next {
+    from {
+      opacity: 0;
+      transform: translateX(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes slide-prev {
+    from {
+      opacity: 0;
+      transform: translateX(-28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 rgb(31 169 135 / 0.45);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 16px rgb(31 169 135 / 0);
+    }
+  }
+}
+
+html {
+  font-size: 15px;
+  scroll-behavior: smooth;
+  background: var(--color-page);
+}
+@media (min-width: 1024px) {
+  html {
+    font-size: clamp(11px, 0.8333vw, 21px);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+@utility hero-surface {
+  background-color: #b6a6ee;
+  background-image:
+    radial-gradient(60% 40% at 100% 0%, rgb(247 214 232 / 0.9), transparent 70%),
+    linear-gradient(180deg, #e3d2f1 0%, #cdb9ee 38%, #b5a5ee 78%, #a99bef 100%);
+}
+
+@utility section-x {
+  padding-inline: clamp(1.25rem, 8.3333vw, 10rem);
+}
+
+@utility underline-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.35s var(--ease-out-expo);
+  &:hover,
+  &:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+::selection {
+  background: #cfc2f6;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,1 @@
+export { productHero } from './content'
